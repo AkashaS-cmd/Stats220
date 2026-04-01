@@ -1,4 +1,3 @@
-```r
 ---
 title: My dynamic report
 output: html_fragment
@@ -10,6 +9,7 @@ library(tidyverse)
 
 ##Tracking student screen time and daily workload
 This report explores student daily habits, including time spent at university, phone usage, screen time, and assignments due. The aim is to identify patterns in student workload and behaviour.
+```md
 ```{r}
 logged_data <- read_csv("https://raw.githubusercontent.com/AkashaS-cmd/Stats220/main/STATS%20220%20Form%20%28Responses%29%20-%20Form%20responses%201.csv")
 
@@ -24,7 +24,7 @@ latest_data <- logged_data %>%
 
 mean_hours <- mean(latest_data$hours_uni, na.rm = TRUE)
 mean_pickups <- mean(latest_data$phone_pickups, na.rm = TRUE)
-```
+
 On average, students spent `r round(mean_hours, 1)` hours at university.
 
 The average number of phone pickups was `r round(mean_pickups, 1)`.
