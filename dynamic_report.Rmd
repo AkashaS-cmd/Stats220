@@ -1,3 +1,4 @@
+```r
 ---
 title: My dynamic report
 output: html_fragment
