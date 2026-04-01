@@ -29,6 +29,7 @@ mean_pickups <- mean(latest_data$phone_pickups, na.rm = TRUE)
 ```
 
 On average, students spent `r round(mean_hours, 1)` hours at university.
+
 The average number of phone pickups was `r round(mean_pickups, 1)`.
 
 ### Screen time distribution
