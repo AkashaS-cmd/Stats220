@@ -6,9 +6,11 @@ output: html_fragment
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
 library(tidyverse)
+```
 
 ##Tracking student screen time and daily workload
 This report explores student daily habits, including time spent at university, phone usage, screen time, and assignments due. The aim is to identify patterns in student workload and behaviour.
+
 ```md
 ```{r}
 logged_data <- read_csv("https://raw.githubusercontent.com/AkashaS-cmd/Stats220/main/STATS%20220%20Form%20%28Responses%29%20-%20Form%20responses%201.csv")
