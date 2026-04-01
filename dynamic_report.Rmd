@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
 library(tidyverse)
 ```
 
-##Tracking student screen time and daily workload
+## Tracking student screen time and daily workload
 This report explores student daily habits, including time spent at university, phone usage, screen time, and assignments due. The aim is to identify patterns in student workload and behaviour.
 
 ```md
