@@ -1,0 +1,65 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+library(tidyverse)
+```
+##Tracking student screen time and daily workload
+
+This report explores student daily habits, including time spent at university, phone usage, screen time, and assignments due. The aim is to identify patterns in student workload and behaviour.
+
+```{r}
+logged_data <- read_csv("STATS 220 Form (Responses) - Form responses 1.csv")
+
+latest_data <- logged_data %>%
+  rename(
+    hours_uni = `How many hours did you spend at university today? (round to nearest whole number)`,
+    phone_pickups = `How many times did you pick up the phone during the day today? (See All App & Website Activity > Scroll down to Pick-Ups)`,
+    assignments_due = `How many assignments did you have due today?(including quizzes, labs, assessments)`,
+    screen_time = `What screen time range were you in today?`,
+    productivity = `How productive did you feel today`
+  )
+
+mean_hours <- mean(latest_data$hours_uni, na.rm = TRUE)
+mean_pickups <- mean(latest_data$phone_pickups, na.rm = TRUE)
+```
+- The average time students spent at university was `r round(mean_hours, 1)` hours.
+- The average number of phone pickups was `r round(mean_pickups, 1)`.
+
+### Screen time distribution
+The bar chart below shows the screen time ranges reported by students.
+
+```{r}
+latest_data %>%
+  ggplot(aes(x = screen_time)) +
+  geom_bar() +
+  labs(
+    title = "Screen time range of students",
+    x = "Screen time range",
+    y = "Count"
+ ) +
+  theme_minimal()
+```
+
+
+### Assignments due
+The bar chart below shows how many assignments students had due that day.
+
+```{r}
+latest_data %>%
+  ggplot(aes(x = factor(assignments_due))) +
+  geom_bar() +
+  labs(
+    title = "Number of assignments due that day",
+    x = "Assignments due",
+    y = "Count"
+ ) +
+  theme_minimal()
+```
+
+
+
+
